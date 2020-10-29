@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Hidden Camera/Molka Crime Stats</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+
+  <body>
+
+  	<h1 style = "margin-top: 1.5em"> Comparing digital sex crime-related statistics in Korea </h1>
+  	<h4> An <i><strong>rudimentary & ongoing analysis</strong></i> by <a href = "https://kwonseoyoung.webflow.io">Jenny Seoyoung Kwon</a></h4>
+
+  	<!-- <h3 style = "margin-top: 2em">Background & Motivations Behind this Project</h3> -->
+  	<h5 style = "margin-top: 2.5em">몰카. Molka. It's an abbreviation for “mollae cameras (<strong>몰</strong>래 <strong>카</strong>메라),” otherwise known as “secret" or "hidden cameras," and describes the act of secretly filming mainly  female-identifying victims in public and private areas such as  bathrooms or love motels and releasing this illegal footage on the internet. </h5>
+    <h5> Unfortunately, this phenomenon is not a newly reported issue in Korea. Victims and allies brought molka to the attention of media back in 2018 with the chant "My life is not your porn." In 2019, Steven Park from AsianBoss interviewed the "top spy-cam expert" in Korea, Son Hae Yeong, who thoroughly shocked viewers as he showed the hundreds of various places where tiny cameras could be hidden around a hotel room. Even BBC Three’s Stacey Dooley filmed an entire documentary in April 2020 called “Spycam Sex Criminals” centered around molka, “molka-related suicides,” and the quick tech-aided evolution of sex crimes as part of her series “Stacey Dooley Investigates.”</h5>
+    <h5>Two particular events involving spy cameras have sparked national outcry and brought digital sex crimes like molka back into public conversation. The first event was the Burning Sun scandal in early 2019 that began with an assault allegation that quickly spiraled to rape, molka, and drug trafficking allegations. This event received heavy media attention due to its involvement of famous Korean entertainment idols such as former BIGBANG member Seungri, a director of the club at the time, former FT Island band member Choi Jonghoon, and former South Korean singer, radio DJ, host, and actor Jung Joon-young. Choi and Jung were found guilty of drugging and gang-raping multiple women while filming without their consent. The second event was the Nth Room Sex Exploitation case that involved Jo Joo Bin, a Korean man who ran a trafficking ring involving 70+ women and girls, some as young as eight years old, forcing them to film videos of themselves self-harming or doing sexual acts and then selling these videos to over 260k people. Jo trafficked the victims via Telegram, a non-Korean encrypted messaging app.</h5>
+    <h5>The Ministry of Government Legislation in South Korea has already passed several laws to curb the rise of spycam-related incidents. The ministry also <a href = "https://moleg.tistory.com/4592">elaborates</a> on the <a href = "https://moleg.tistory.com/4458">specifics</a> of these <a href = "https://moleg.tistory.com/5229?category=740310">laws</a> and provides tips and <a href = "https://moleg.tistory.com/3735">guidelines</a> to citizens on how to protect themselves from becoming victims of spycam crime or how to file claims if they do become victims on their tistory blog.</h5>
+
+    <h5> The <strong>Act on Special Cases concerning the Punishment, etc. of Sexual Crimes </strong>(성폭력 범죄의 처벌 등에 관한 특례법 targets anyone who sends "another person  any words, sounds, writings, pictures, images, or other things that may cause a sense of sexual shame or aversion by telephone, mail, computer, or other means of communication, with intent to arouse or satisfy his/her own or the other person's sexual urges" and sentences them to up to two years in prison or a fine of up to five million won. It also sentences those who sexually harrass via photo-taking or those who distribute those photos up to five years in prison or a fine of up to 30 million won. After the Nth Room incident and with the rise of deepfakes, a new addendum was added to sentence those who created fake media or edited real media to sexually harrass victims up to five years in prison or a fine up of up to 50 million won. The prison time can be extended to up to seven years if the perpetrator is found to profit off of the distribution of the manipulated content. <i>The English full legal texts to this act and its revisions can be found <a href = "https://law.go.kr/engLsSc.do?menuId=1&subMenuId=21&tabMenuId=117&query=%EC%84%B1%ED%8F%AD%EB%A0%A5%EB%B2%94%EC%A3%84#">here</a>.</i></h5> 
+
+    <h5>The other act highlighted in this analysis is the <strong>Act on Promotion of Information and Communications Network Utilization and Information Protection, etc.</strong>, otherwise known as the Network Act (정보통신망 이용촉진 및 정보보호 등에 관한 법률). This provision specifically targets those who purposefully defame or slander other people by disclosing private information via an "information and communications network" and sentences them for up to three years in prison (with labor) or fines them up to 30 million won. If the disclosed information is knowingly false, the prison can increase up to seven years, the fine can increase up to 50 million won, and (professional) qualifications can be suspended up to 10 years. </h5>
+
+    <h5><i>Get a <a href = "http://koreanlii.or.kr/w/index.php/Digital_sex_crimes#Relevant_provisions_to_be_invoked">summary of the other provisions</a> specifically addressing digital sex crimes or read more on these two acts.</i></h5>
+
+    <div class="wrapper">
+      <h2 style = "margin-top: 1.5em;">Crime statistics under the</h2>
+			<div class="dropdown">
+			  <button class="dropbtn"><h2 id = "dropdown-name" style = "color: #a3a3a3;">hover to select an act below  ▼ </h2></button>
+			  <div class="dropdown-content">
+			    <a id = "specialact" onclick = "load_specialact()"> Act on Special Cases concerning the Punishment, etc. of Sexual Crimes (Camera, etc.)</a>
+			    <a id = "actdistporn" onclick = "load_distporn()">Act on Promotion of Information and Communications Network Utilization and Information Protection, etc.</a>
+
+			    <!--Name from KOSIS: The Act on the Promotion of Information and Communication Network Utilization and Information Protection, etc. (Distribution of Pornography) 정보통신망이용촉진및정보보호등에관한법률 (음란물유포)-->
+
+			  </div>
+			</div>
+      <h2 style = "margin-top: 1em; margin-bottom: 1em;">from 2011-2019 in Korea</h2>
+
+      <canvas id="grouped-bar" width="800" height="450" aria-label="Graph of Crimes under the Act on the Promotion of Information and Communication Network Utilization and Information Protection, etc. (Distribution of Pornography) by number of cases and arrests from 2011 to 2019" role = 'img'></canvas>
+
+      <p><i>Data extracted from <a href="https://kosis.kr/statHtml/statHtml.do?orgId=132&tblId=DT_13204_2011_211">KOSIS (Korean Statistical Information Service)</a></i></p>
+    </div>
+
+    <h5>Outside of these laws, the Korean government has taken other approaches to combating spycam and spycam-related crime. One noteable solution that has been implemented in Seoul is hidden camera-hunting "squads" comprised of primarily elderly women who conduct daily public toilet checks and are tasked with finding and rooting out spy cameras. Interestingly, several news articles have pointed out that these spycam-searching teams haven’t found substantial existence of spy cameras in public bathrooms or other areas. Additionally, this initiative seems to only be city-wide, despite the fact that spycam crime happens on a national level. More concerningly, the articles on these squads are a few years old, which begs the question of <strong>whether they have been effective after two or more years in actually decreasing the rate of molka incidents. </strong></h5>
+
+
+    <div class = "wrapper">
+    	<h2 style = "margin-bottom:1em;">Arrest Rates (%) by Act/Law from 2011-2018 in Korea</h2>
+
+    	<canvas id="line-chart" width="800" height="450" aria-label="Graph of arrest rates from 2011 to 2019 of crimes under the special act on punishment of sexual violence crimes" role = 'img'></canvas>
+
+    	<p><i>Data extracted from <a href="https://kosis.kr/statHtml/statHtml.do?orgId=132&tblId=DT_13204_2011_211">KOSIS (Korean Statistical Information Service)</a></i></p>
+    </div>
+
+    <h5>Data from the Korean Statistical Information Service, or KOSIS, on the number of arrests and arrest rate show that while the number of arrests and cases made under the Act of Promotion of Information and Communications Network Utilization and Information Protection, etc. have generally been on the decline since 2013, the number of cases and arrests being made under the Act on Special Cases concerning the Punishment, etc. of Sexual Crimes (Camera, etc.) have <strong>not decreased substantially.</strong> Under the Act on Special Cases, the number of cases increased <strong>fivefold</strong> from 2011 to 2015, going from 1500 to over 7500, before going down to 5170 in 2016, increasing to 6465 in 2017, and stabilizing at 5925 and 5764 cases in 2018 and 2019.</h5> 
+
+    <h5>This existing data from KOSIS answer few and create more questions. How, if at all, is the efficacy of the spycam hunting squads and other similar initiatives being measured? Is the government taking other steps such as regulating camera sales to combat the spycam epidemic? And, most importantly, are the victims of digital sex crimes being consulted or reached out to? What, to them, would constitute as justice, and how do current methods of data collection and legal consequences compare to these visions of justice?</h5>
+
+    <h5>The perpetrators arrested under both the Act on Special Cases and the Network Act are overwhelmingly male-identifying. Korea is known to still be incredibly male-dominated, and a patriarchal and sexist culture certainly fuels and perpetuates this horrible phenomenon and affects thousands of victims every year.</h5>
+
+    <h5>I decided to do this piece because I became invested in learning more about molka after the media frenzy surrounding the Burning Sun scandal, which involved some of my former beloved K-pop idols. I was disappointed, but not surprised. This issue hits close to home for me as a child of Korean immigrant parents. My main caretaker was my mom, who gave up her fulfilling career and life as a teacher (who get paid by the government and receive good benefits) to follow my dad's business career all the way from Korea to Europe to America, where my mom had me. The same culture that forced my mom to retire and become a stay at home mom in her thirties also causes and perpetuates molka and other forms of gender-based  violence that objectify, sexualize, demean, and oppress women. Intergenerational trauma passed down from mother to child is often rooted in systemic patriarchal oppression that will continue to evolve and take on different yet equally oppressive ways as technology evolves. </h5>
+
+    <h4>Limitations</h4>
+
+    <h5>I encountered issues within the data collection process for this initial rudimentary analysis of KOSIS data - some were related to the choppy translation from the Korean legal terms to English, but others were related to data discrepancies. News articles on KOSIS data reported numbers that were slightly off from the numbers I found on the KOSIS database. I have yet to find out the causes of these discrepancies. </h5>
+
+    <script src="script.js"></script>
+  </body>
+</html>
